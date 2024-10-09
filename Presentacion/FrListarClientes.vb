@@ -26,4 +26,24 @@ Public Class FrListarClientes
         DataGridView1.DataSource = clientesFiltrados
 
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+        If e.RowIndex >= 0 Then
+
+            ' Obtener el cliente seleccionado
+            Dim clienteSeleccionado As Cliente = CType(DataGridView1.Rows(e.RowIndex).DataBoundItem, Cliente)
+
+            ' Abrir el formulario de detalle y pasar los datos del cliente
+            Dim frDetalleCliente As New FrClienteDetalle(clienteSeleccionado)
+
+            ' Hacer que el formulario de detalle sea hijo de MainStrip (MDI)
+            frDetalleCliente.MdiParent = Me.MdiParent  ' Asumiendo que FrListarClientes también es un hijo
+
+            ' Mostrar el formulario dentro del contenedor MDI
+            frDetalleCliente.Show()
+
+        End If
+
+    End Sub
 End Class
