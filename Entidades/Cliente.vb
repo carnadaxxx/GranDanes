@@ -1,7 +1,7 @@
 ﻿Namespace Entidades
     Public Class Cliente
 
-        Public Property ID As Integer
+        Public Property ClientID As Integer
         Public Property Name As String
         Public Property Email As String
         Public Property Phone As String
@@ -14,7 +14,7 @@
         End Sub
 
         Public Sub New(id As Integer, name As String, email As String, phone As String, address As String)
-            Me.ID = id
+            Me.ClientID = id
             Me.Name = name
             Me.Email = email
             Me.Phone = phone

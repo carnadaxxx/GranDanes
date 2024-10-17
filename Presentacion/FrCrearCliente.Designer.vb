@@ -22,25 +22,25 @@ Partial Class FrCrearCliente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Button1 = New Button()
+        BtnCrearCliente = New Button()
         Label1 = New Label()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
+        NameTextBox = New TextBox()
+        EmailTextBox = New TextBox()
         Label2 = New Label()
         Label3 = New Label()
-        TextBox3 = New TextBox()
+        PhoneTextBox = New TextBox()
         Label4 = New Label()
-        TextBox4 = New TextBox()
+        AddressTextBox = New TextBox()
         SuspendLayout()
         ' 
-        ' Button1
+        ' BtnCrearCliente
         ' 
-        Button1.Location = New Point(12, 409)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(776, 29)
-        Button1.TabIndex = 0
-        Button1.Text = "Crear Cliente"
-        Button1.UseVisualStyleBackColor = True
+        BtnCrearCliente.Location = New Point(12, 409)
+        BtnCrearCliente.Name = "BtnCrearCliente"
+        BtnCrearCliente.Size = New Size(776, 29)
+        BtnCrearCliente.TabIndex = 0
+        BtnCrearCliente.Text = "Crear Cliente"
+        BtnCrearCliente.UseVisualStyleBackColor = True
         ' 
         ' Label1
         ' 
@@ -51,19 +51,19 @@ Partial Class FrCrearCliente
         Label1.TabIndex = 1
         Label1.Text = "Nombre"
         ' 
-        ' TextBox1
+        ' NameTextBox
         ' 
-        TextBox1.Location = New Point(171, 28)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(617, 27)
-        TextBox1.TabIndex = 2
+        NameTextBox.Location = New Point(171, 28)
+        NameTextBox.Name = "NameTextBox"
+        NameTextBox.Size = New Size(617, 27)
+        NameTextBox.TabIndex = 2
         ' 
-        ' TextBox2
+        ' EmailTextBox
         ' 
-        TextBox2.Location = New Point(171, 74)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(617, 27)
-        TextBox2.TabIndex = 3
+        EmailTextBox.Location = New Point(171, 74)
+        EmailTextBox.Name = "EmailTextBox"
+        EmailTextBox.Size = New Size(617, 27)
+        EmailTextBox.TabIndex = 3
         ' 
         ' Label2
         ' 
@@ -83,12 +83,12 @@ Partial Class FrCrearCliente
         Label3.TabIndex = 5
         Label3.Text = "Telefono"
         ' 
-        ' TextBox3
+        ' PhoneTextBox
         ' 
-        TextBox3.Location = New Point(171, 131)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(617, 27)
-        TextBox3.TabIndex = 6
+        PhoneTextBox.Location = New Point(171, 131)
+        PhoneTextBox.Name = "PhoneTextBox"
+        PhoneTextBox.Size = New Size(617, 27)
+        PhoneTextBox.TabIndex = 6
         ' 
         ' Label4
         ' 
@@ -99,41 +99,41 @@ Partial Class FrCrearCliente
         Label4.TabIndex = 7
         Label4.Text = "Direccion"
         ' 
-        ' TextBox4
+        ' AddressTextBox
         ' 
-        TextBox4.Location = New Point(171, 185)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(617, 27)
-        TextBox4.TabIndex = 8
+        AddressTextBox.Location = New Point(171, 185)
+        AddressTextBox.Name = "AddressTextBox"
+        AddressTextBox.Size = New Size(617, 27)
+        AddressTextBox.TabIndex = 8
         ' 
         ' FrCrearCliente
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(TextBox4)
+        Controls.Add(AddressTextBox)
         Controls.Add(Label4)
-        Controls.Add(TextBox3)
+        Controls.Add(PhoneTextBox)
         Controls.Add(Label3)
         Controls.Add(Label2)
-        Controls.Add(TextBox2)
-        Controls.Add(TextBox1)
+        Controls.Add(EmailTextBox)
+        Controls.Add(NameTextBox)
         Controls.Add(Label1)
-        Controls.Add(Button1)
+        Controls.Add(BtnCrearCliente)
         Name = "FrCrearCliente"
         Text = "Crear Cliente"
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnCrearCliente As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents NameTextBox As TextBox
+    Friend WithEvents EmailTextBox As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents PhoneTextBox As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents AddressTextBox As TextBox
 
 End Class

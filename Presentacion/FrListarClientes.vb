@@ -7,11 +7,10 @@ Public Class FrListarClientes
 
     Private Sub FrListarClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Dim clienteRepo As New ClienteRepository()
+
         ' Esto es para cargar los clientes en memoria lo que no va a cambiar mas adelante
-        clientes = New List(Of Cliente) From {
-            New Cliente(1, "Wilson Coronado", "w@uss.edu.pe", "952177674", "Leticia 466"),
-            New Cliente(2, "Altamirano", "a@uss.edu.pe", "952177672", "Leticia 463")
-        }
+        Dim clientes As List(Of Cliente) = clienteRepo.ListarTodosLosClientes()
 
         DataGridView1.DataSource = clientes
 
