@@ -28,8 +28,8 @@ Partial Class FrClienteDetalle
         TextDireccion = New TextBox()
         Label4 = New Label()
         TextTelefono = New TextBox()
-        DataGridView1 = New DataGridView()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        PrestamosDatagrid = New DataGridView()
+        CType(PrestamosDatagrid, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -80,21 +80,21 @@ Partial Class FrClienteDetalle
         TextTelefono.Size = New Size(698, 27)
         TextTelefono.TabIndex = 6
         ' 
-        ' DataGridView1
+        ' PrestamosDatagrid
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(12, 132)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(776, 306)
-        DataGridView1.TabIndex = 7
+        PrestamosDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        PrestamosDatagrid.Location = New Point(12, 132)
+        PrestamosDatagrid.Name = "PrestamosDatagrid"
+        PrestamosDatagrid.RowHeadersWidth = 51
+        PrestamosDatagrid.Size = New Size(776, 306)
+        PrestamosDatagrid.TabIndex = 7
         ' 
         ' FrClienteDetalle
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(DataGridView1)
+        Controls.Add(PrestamosDatagrid)
         Controls.Add(TextTelefono)
         Controls.Add(Label4)
         Controls.Add(TextDireccion)
@@ -103,7 +103,7 @@ Partial Class FrClienteDetalle
         Controls.Add(Label1)
         Name = "FrClienteDetalle"
         Text = "Detalle del Cliente"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PrestamosDatagrid, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -114,5 +114,5 @@ Partial Class FrClienteDetalle
     Friend WithEvents TextDireccion As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextTelefono As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents PrestamosDatagrid As DataGridView
 End Class

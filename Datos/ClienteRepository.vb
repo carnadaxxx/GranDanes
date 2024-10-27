@@ -76,4 +76,46 @@ Public Class ClienteRepository
 
     End Function
 
+
+    Public Function ListarPrestamosPorCliente(idCliente As Integer) As List(Of Prestamo)
+
+        Dim prestamos As New List(Of Prestamo)()
+
+        Using connection As New SqlConnection(connectionString)
+
+            connection.Open()
+
+            Dim query As String = "SELECT * FROM Loan WHERE ClientID = @ClientID;"
+
+            Using command As New SqlCommand(query, connection)
+
+                ' Agregar el parámetro @ClientID
+                command.Parameters.AddWithValue("@ClientID", idCliente)
+
+                Using reader As SqlDataReader = command.ExecuteReader()
+
+                    While reader.Read()
+
+                        Dim prestamoObj As New Prestamo()
+
+                        prestamoObj.ClientID = Convert.ToInt32(reader("ClientID"))
+                        prestamoObj.Amount = Convert.ToDecimal(reader("Amount"))
+                        prestamoObj.DueDate = Convert.ToDateTime(reader("DueDate"))
+                        prestamoObj.LoanStatus = reader("LoanStatus").ToString()
+
+                        prestamos.Add(prestamoObj) ' Agregar el préstamo a la lista
+
+                    End While
+
+                End Using
+
+            End Using
+
+        End Using
+
+        Return prestamos
+
+    End Function
+
+
 End Class
