@@ -89,15 +89,15 @@ Partial Class MainForm
         pnlContenedor.Size = New Size(800, 422)
         pnlContenedor.TabIndex = 1
         ' 
-        ' MainStrip
+        ' MainForm
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(pnlContenedor)
         Controls.Add(MenuStrip1)
         MainMenuStrip = MenuStrip1
-        Name = "MainStrip"
+        Name = "MainForm"
         Text = "HomePage"
         MenuStrip1.ResumeLayout(False)
         MenuStrip1.PerformLayout()

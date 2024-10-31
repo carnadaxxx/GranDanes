@@ -65,9 +65,7 @@ Public Class ClienteRepository
                         clienteObj.Direccion = reader("Direccion").ToString()
                         clienteObj.FechaRegistro = Convert.ToDateTime(reader("FechaRegistro"))
                         clienteObj.Visible = Convert.ToBoolean(reader("Visible"))
-                        clienteObj.Contraseña = reader("Contraseña").ToString()
                         clienteObj.UltimoAcceso = If(IsDBNull(reader("UltimoAcceso")), Nothing, Convert.ToDateTime(reader("UltimoAcceso")))
-
                         clientes.Add(clienteObj)
                     End While
                 End Using
@@ -79,13 +77,14 @@ Public Class ClienteRepository
 
     ' Método para validar al cliente
     Public Function ValidarCliente(email As String, contraseña As String) As Boolean
+
         Dim resultado As Integer
 
         Using connection As New SqlConnection(connectionString)
             Try
                 connection.Open()
 
-                Using command As New SqlCommand("sp_ValidarUsuario", connection)
+                Using command As New SqlCommand("sp_ValidarYRegistrarUltimoAcceso", connection)
                     command.CommandType = CommandType.StoredProcedure
 
                     ' Asignar parámetros
@@ -93,7 +92,7 @@ Public Class ClienteRepository
                     command.Parameters.AddWithValue("@Contraseña", contraseña)
 
                     ' Agregar el parámetro de salida
-                    Dim resultadoParam As SqlParameter = New SqlParameter("@Resultado", SqlDbType.Int)
+                    Dim resultadoParam As SqlParameter = New SqlParameter("@Cuenta", SqlDbType.Int)
                     resultadoParam.Direction = ParameterDirection.Output
                     command.Parameters.Add(resultadoParam)
 
@@ -116,5 +115,29 @@ Public Class ClienteRepository
         Return resultado > 0
     End Function
 
+    ' Método para obtener la lista de roles
+    Public Function ObtenerRoles() As List(Of Entidades.RolEntity)
+        Dim roles As New List(Of Entidades.RolEntity)()
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand("sp_ListarRoles", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+                connection.Open()
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        Dim rol As New Entidades.RolEntity() With {
+                            .RolID = reader.GetInt32(0),
+                            .NombreRol = reader.GetString(1),
+                            .Descripcion = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
+                        }
+                        roles.Add(rol)
+                    End While
+                End Using
+            End Using
+        End Using
+
+        Return roles
+    End Function
 
 End Class

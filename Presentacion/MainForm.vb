@@ -86,4 +86,9 @@
 
     End Sub
 
+    Private Sub MostrarConfiguracionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MostrarConfiguracionesToolStripMenuItem.Click
+
+        CargarFormularioEnPanel(New FrListarConfiguracion)
+
+    End Sub
 End Class

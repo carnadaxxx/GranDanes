@@ -10,6 +10,8 @@
         Dim clientes As List(Of ClienteEntity) = clienteRepo.ListarTodosLosClientes()
 
         DataGridView1.DataSource = clientes
+        DataGridView1.Columns("ClienteID").Visible = False
+        DataGridView1.Columns("Contraseña").Visible = False
 
     End Sub
 

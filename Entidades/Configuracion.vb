@@ -1,5 +1,5 @@
 ﻿Namespace Entidades
-    Public Class Configuracion
+    Public Class ConfiguracionEntity
 
         Public Property ID As Integer
         Public Property ConfigKey As String

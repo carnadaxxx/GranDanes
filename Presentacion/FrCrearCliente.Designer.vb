@@ -31,6 +31,8 @@ Partial Class FrCrearCliente
         PhoneTextBox = New TextBox()
         Label4 = New Label()
         AddressTextBox = New TextBox()
+        Label5 = New Label()
+        TextBoxApellidos = New TextBox()
         SuspendLayout()
         ' 
         ' BtnCrearCliente
@@ -60,7 +62,7 @@ Partial Class FrCrearCliente
         ' 
         ' EmailTextBox
         ' 
-        EmailTextBox.Location = New Point(171, 74)
+        EmailTextBox.Location = New Point(171, 122)
         EmailTextBox.Name = "EmailTextBox"
         EmailTextBox.Size = New Size(617, 27)
         EmailTextBox.TabIndex = 3
@@ -68,7 +70,7 @@ Partial Class FrCrearCliente
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(25, 77)
+        Label2.Location = New Point(25, 125)
         Label2.Name = "Label2"
         Label2.Size = New Size(132, 20)
         Label2.TabIndex = 4
@@ -77,7 +79,7 @@ Partial Class FrCrearCliente
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(25, 129)
+        Label3.Location = New Point(25, 179)
         Label3.Name = "Label3"
         Label3.Size = New Size(67, 20)
         Label3.TabIndex = 5
@@ -85,7 +87,7 @@ Partial Class FrCrearCliente
         ' 
         ' PhoneTextBox
         ' 
-        PhoneTextBox.Location = New Point(171, 131)
+        PhoneTextBox.Location = New Point(171, 179)
         PhoneTextBox.Name = "PhoneTextBox"
         PhoneTextBox.Size = New Size(617, 27)
         PhoneTextBox.TabIndex = 6
@@ -93,7 +95,7 @@ Partial Class FrCrearCliente
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(30, 185)
+        Label4.Location = New Point(25, 233)
         Label4.Name = "Label4"
         Label4.Size = New Size(72, 20)
         Label4.TabIndex = 7
@@ -101,16 +103,34 @@ Partial Class FrCrearCliente
         ' 
         ' AddressTextBox
         ' 
-        AddressTextBox.Location = New Point(171, 185)
+        AddressTextBox.Location = New Point(171, 233)
         AddressTextBox.Name = "AddressTextBox"
         AddressTextBox.Size = New Size(617, 27)
         AddressTextBox.TabIndex = 8
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(29, 78)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(72, 20)
+        Label5.TabIndex = 9
+        Label5.Text = "Apellidos"
+        ' 
+        ' TextBoxApellidos
+        ' 
+        TextBoxApellidos.Location = New Point(174, 77)
+        TextBoxApellidos.Name = "TextBoxApellidos"
+        TextBoxApellidos.Size = New Size(614, 27)
+        TextBoxApellidos.TabIndex = 10
         ' 
         ' FrCrearCliente
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(TextBoxApellidos)
+        Controls.Add(Label5)
         Controls.Add(AddressTextBox)
         Controls.Add(Label4)
         Controls.Add(PhoneTextBox)
@@ -135,5 +155,7 @@ Partial Class FrCrearCliente
     Friend WithEvents PhoneTextBox As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents AddressTextBox As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TextBoxApellidos As TextBox
 
 End Class
