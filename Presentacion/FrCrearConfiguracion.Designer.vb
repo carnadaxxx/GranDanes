@@ -25,9 +25,9 @@ Partial Class FrCrearConfiguracion
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox3 = New TextBox()
+        TextBoxNombreConfiguracion = New TextBox()
+        TextBoxValorPorDefecto = New TextBox()
+        TextBoxDescripcion = New TextBox()
         Button1 = New Button()
         SuspendLayout()
         ' 
@@ -58,26 +58,26 @@ Partial Class FrCrearConfiguracion
         Label3.TabIndex = 2
         Label3.Text = "Descripcion"
         ' 
-        ' TextBox1
+        ' TextBoxNombreConfiguracion
         ' 
-        TextBox1.Location = New Point(241, 19)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(547, 27)
-        TextBox1.TabIndex = 3
+        TextBoxNombreConfiguracion.Location = New Point(241, 19)
+        TextBoxNombreConfiguracion.Name = "TextBoxNombreConfiguracion"
+        TextBoxNombreConfiguracion.Size = New Size(547, 27)
+        TextBoxNombreConfiguracion.TabIndex = 3
         ' 
-        ' TextBox2
+        ' TextBoxValorPorDefecto
         ' 
-        TextBox2.Location = New Point(241, 65)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(547, 27)
-        TextBox2.TabIndex = 4
+        TextBoxValorPorDefecto.Location = New Point(241, 65)
+        TextBoxValorPorDefecto.Name = "TextBoxValorPorDefecto"
+        TextBoxValorPorDefecto.Size = New Size(547, 27)
+        TextBoxValorPorDefecto.TabIndex = 4
         ' 
-        ' TextBox3
+        ' TextBoxDescripcion
         ' 
-        TextBox3.Location = New Point(241, 117)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(547, 27)
-        TextBox3.TabIndex = 5
+        TextBoxDescripcion.Location = New Point(241, 117)
+        TextBoxDescripcion.Name = "TextBoxDescripcion"
+        TextBoxDescripcion.Size = New Size(547, 27)
+        TextBoxDescripcion.TabIndex = 5
         ' 
         ' Button1
         ' 
@@ -94,9 +94,9 @@ Partial Class FrCrearConfiguracion
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(Button1)
-        Controls.Add(TextBox3)
-        Controls.Add(TextBox2)
-        Controls.Add(TextBox1)
+        Controls.Add(TextBoxDescripcion)
+        Controls.Add(TextBoxValorPorDefecto)
+        Controls.Add(TextBoxNombreConfiguracion)
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
@@ -109,8 +109,8 @@ Partial Class FrCrearConfiguracion
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBoxNombreConfiguracion As TextBox
+    Friend WithEvents TextBoxValorPorDefecto As TextBox
+    Friend WithEvents TextBoxDescripcion As TextBox
     Friend WithEvents Button1 As Button
 End Class

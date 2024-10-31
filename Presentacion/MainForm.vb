@@ -21,6 +21,27 @@
         End If
     End Sub
 
+    Public Sub CargarFormularioEnPanel(ByVal formulario As Form)
+
+        ' Limpiar el panel antes de cargar el nuevo formulario
+        pnlContenedor.Controls.Clear()
+
+        ' Configurar el formulario para cargarlo en el panel
+        formulario.TopLevel = False
+
+        formulario.FormBorderStyle = FormBorderStyle.None
+
+        formulario.Dock = DockStyle.Fill
+
+        pnlContenedor.Controls.Add(formulario)
+
+        pnlContenedor.Tag = formulario
+
+        formulario.Show()
+
+    End Sub
+
+
     Private Sub NuevoClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoClienteToolStripMenuItem.Click
 
         CargarFormularioEnPanel(New FrCrearCliente)
@@ -57,30 +78,13 @@
 
     End Sub
 
-
-    Public Sub CargarFormularioEnPanel(ByVal formulario As Form)
-
-        ' Limpiar el panel antes de cargar el nuevo formulario
-        pnlContenedor.Controls.Clear()
-
-        ' Configurar el formulario para cargarlo en el panel
-        formulario.TopLevel = False
-
-        formulario.FormBorderStyle = FormBorderStyle.None
-
-        formulario.Dock = DockStyle.Fill
-
-        pnlContenedor.Controls.Add(formulario)
-
-        pnlContenedor.Tag = formulario
-
-        formulario.Show()
-
-    End Sub
-
     Private Sub MostrarConfiguracionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MostrarConfiguracionesToolStripMenuItem.Click
 
         CargarFormularioEnPanel(New FrListarConfiguracion)
 
+    End Sub
+
+    Private Sub CrearConfiguracionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearConfiguracionToolStripMenuItem.Click
+        CargarFormularioEnPanel(New FrCrearConfiguracion)
     End Sub
 End Class
