@@ -1,16 +1,13 @@
-﻿Imports System.Drawing.Text
-Imports Entidades.Entidades
+﻿Public Class FrListarClientes
 
-Public Class FrListarClientes
-
-    Private clientes As List(Of Cliente)
+    Private clientes As List(Of ClienteEntity)
 
     Private Sub FrListarClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim clienteRepo As New ClienteRepository()
 
         ' Esto es para cargar los clientes en memoria lo que no va a cambiar mas adelante
-        Dim clientes As List(Of Cliente) = clienteRepo.ListarTodosLosClientes()
+        Dim clientes As List(Of ClienteEntity) = clienteRepo.ListarTodosLosClientes()
 
         DataGridView1.DataSource = clientes
 
@@ -20,7 +17,7 @@ Public Class FrListarClientes
 
         Dim filtroNombre As String = InputNombreFiltro.Text.Trim()
 
-        Dim clientesFiltrados = clientes.Where(Function(c) c.Name.ToLower().Contains(filtroNombre.ToLower())).ToList()
+        Dim clientesFiltrados = clientes.Where(Function(c) c.Nombre.ToLower().Contains(filtroNombre.ToLower())).ToList()
 
         DataGridView1.DataSource = clientesFiltrados
 
@@ -31,7 +28,7 @@ Public Class FrListarClientes
         If e.RowIndex >= 0 Then
 
             ' Obtener el cliente seleccionado
-            Dim clienteSeleccionado As Cliente = CType(DataGridView1.Rows(e.RowIndex).DataBoundItem, Cliente)
+            Dim clienteSeleccionado As ClienteEntity = CType(DataGridView1.Rows(e.RowIndex).DataBoundItem, ClienteEntity)
 
             ' Abrir el formulario de detalle y pasar los datos del cliente
             Dim frDetalleCliente As New FrClienteDetalle(clienteSeleccionado)

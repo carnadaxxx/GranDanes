@@ -2,7 +2,7 @@
 
 Public Class FrClienteDetalle
 
-    Public Sub New(cliente As Cliente)
+    Public Sub New(cliente As ClienteEntity)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -11,11 +11,11 @@ Public Class FrClienteDetalle
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
-        TextNombre.Text = cliente.Name
-        TextDireccion.Text = cliente.Address
-        TextTelefono.Text = cliente.Phone
+        TextNombre.Text = cliente.Nombre
+        TextDireccion.Text = cliente.Direccion
+        TextTelefono.Text = cliente.Telefono
 
-        PrestamosDatagrid.DataSource = clienteRepository.ListarPrestamosPorCliente(cliente.ClientID)
+        ' PrestamosDatagrid.DataSource = clienteRepository.ListarPrestamosPorCliente(cliente.ClienteID)
 
     End Sub
 

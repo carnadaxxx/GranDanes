@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MainStrip
+Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -29,6 +29,7 @@ Partial Class MainStrip
         ConfiguracionesToolStripMenuItem = New ToolStripMenuItem()
         CrearConfiguracionToolStripMenuItem = New ToolStripMenuItem()
         MostrarConfiguracionesToolStripMenuItem = New ToolStripMenuItem()
+        pnlContenedor = New Panel()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -52,13 +53,13 @@ Partial Class MainStrip
         ' NuevoClienteToolStripMenuItem
         ' 
         NuevoClienteToolStripMenuItem.Name = "NuevoClienteToolStripMenuItem"
-        NuevoClienteToolStripMenuItem.Size = New Size(224, 26)
+        NuevoClienteToolStripMenuItem.Size = New Size(185, 26)
         NuevoClienteToolStripMenuItem.Text = "Nuevo Cliente"
         ' 
         ' VerClientesToolStripMenuItem
         ' 
         VerClientesToolStripMenuItem.Name = "VerClientesToolStripMenuItem"
-        VerClientesToolStripMenuItem.Size = New Size(224, 26)
+        VerClientesToolStripMenuItem.Size = New Size(185, 26)
         VerClientesToolStripMenuItem.Text = "Ver Clientes"
         ' 
         ' ConfiguracionesToolStripMenuItem
@@ -80,11 +81,20 @@ Partial Class MainStrip
         MostrarConfiguracionesToolStripMenuItem.Size = New Size(254, 26)
         MostrarConfiguracionesToolStripMenuItem.Text = "Mostrar Configuraciones"
         ' 
+        ' pnlContenedor
+        ' 
+        pnlContenedor.Dock = DockStyle.Fill
+        pnlContenedor.Location = New Point(0, 28)
+        pnlContenedor.Name = "pnlContenedor"
+        pnlContenedor.Size = New Size(800, 422)
+        pnlContenedor.TabIndex = 1
+        ' 
         ' MainStrip
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(pnlContenedor)
         Controls.Add(MenuStrip1)
         MainMenuStrip = MenuStrip1
         Name = "MainStrip"
@@ -102,4 +112,5 @@ Partial Class MainStrip
     Friend WithEvents ConfiguracionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CrearConfiguracionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MostrarConfiguracionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents pnlContenedor As Panel
 End Class

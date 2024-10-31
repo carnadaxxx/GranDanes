@@ -1,11 +1,11 @@
 ﻿Public Class FrCrearCliente
     Private Sub BtnCrearCliente_Click(sender As Object, e As EventArgs) Handles BtnCrearCliente.Click
 
-        Dim nuevoCliente As New Cliente() With {
-            .Name = NameTextBox.Text,
+        Dim nuevoCliente As New ClienteEntity() With {
+            .Nombre = NameTextBox.Text,
             .Email = EmailTextBox.Text,
-            .Address = AddressTextBox.Text,
-            .Phone = PhoneTextBox.Text,
+            .Direccion = AddressTextBox.Text,
+            .Telefono = PhoneTextBox.Text,
             .Visible = True
         }
 
