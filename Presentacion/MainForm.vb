@@ -23,21 +23,13 @@
 
     Private Sub NuevoClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoClienteToolStripMenuItem.Click
 
-        Dim frm As New FrCrearCliente()
-
-        frm.MdiParent = Me
-
-        frm.Show()
+        CargarFormularioEnPanel(New FrCrearCliente)
 
     End Sub
 
     Private Sub VerClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerClientesToolStripMenuItem.Click
 
-        Dim frm As New FrListarClientes()
-
-        frm.MdiParent = Me
-
-        frm.Show()
+        CargarFormularioEnPanel(New FrListarClientes)
 
     End Sub
 

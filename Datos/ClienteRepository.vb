@@ -1,4 +1,5 @@
 ﻿Imports System.Configuration
+Imports Entidades
 Imports Microsoft.Data.SqlClient
 
 Public Class ClienteRepository
@@ -10,38 +11,55 @@ Public Class ClienteRepository
         connectionString = ConfigurationManager.ConnectionStrings("MiConexionSQL").ConnectionString
     End Sub
 
-    ' Método para crear un cliente
-    Public Function CrearCliente(cliente As ClienteEntity) As Integer
-        Dim clienteID As Integer = 0
+    ' Método para crear un cliente y asignarle roles
+    Public Function CrearClienteConRoles(cliente As ClienteEntity, roles As List(Of RolEntity)) As Boolean
+        Dim exito As Boolean = False
 
         Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            ' Iniciar una transacción
+            Dim transaction As SqlTransaction = connection.BeginTransaction()
+
             Try
-                connection.Open()
-
-                Using command As New SqlCommand("sp_CrearCliente", connection)
+                ' Insertar el cliente en la base de datos
+                Using command As New SqlCommand("sp_CrearCliente", connection, transaction)
                     command.CommandType = CommandType.StoredProcedure
-
-                    ' Asignar los parámetros del procedimiento almacenado
                     command.Parameters.AddWithValue("@Nombre", cliente.Nombre)
                     command.Parameters.AddWithValue("@Apellido", cliente.Apellido)
                     command.Parameters.AddWithValue("@Email", cliente.Email)
-                    command.Parameters.AddWithValue("@Telefono", If(cliente.Telefono, DBNull.Value))
-                    command.Parameters.AddWithValue("@Direccion", If(cliente.Direccion, DBNull.Value))
-                    command.Parameters.AddWithValue("@Visible", cliente.Visible)
                     command.Parameters.AddWithValue("@Contraseña", cliente.Contraseña)
-                    command.Parameters.AddWithValue("@UltimoAcceso", If(cliente.UltimoAcceso, DBNull.Value))
+                    command.Parameters.AddWithValue("@Telefono", cliente.Telefono)
+                    command.Parameters.AddWithValue("@Direccion", cliente.Direccion)
+                    command.Parameters.AddWithValue("@Visible", cliente.Visible)
+                    command.Parameters.AddWithValue("@UltimoAcceso", cliente.UltimoAcceso)
 
-                    ' Ejecutar el comando y obtener el ID generado
-                    clienteID = Convert.ToInt32(command.ExecuteScalar())
+                    ' Ejecutar el procedimiento almacenado y obtener el ID del cliente
+                    Dim clienteID As Integer = Convert.ToInt32(command.ExecuteScalar())
+
+                    ' Asignar roles al cliente usando el procedimiento almacenado para cada rol
+                    For Each rol As RolEntity In roles
+                        Using roleCommand As New SqlCommand("sp_AsignarRolACliente", connection, transaction)
+                            roleCommand.CommandType = CommandType.StoredProcedure
+                            roleCommand.Parameters.AddWithValue("@ClienteID", clienteID)
+                            roleCommand.Parameters.AddWithValue("@RolID", rol.RolID)
+                            roleCommand.ExecuteNonQuery()
+                        End Using
+                    Next
                 End Using
 
+                ' Confirmar la transacción
+                transaction.Commit()
+                exito = True
+
             Catch ex As Exception
-                ' Maneja cualquier error
-                Console.WriteLine("Error al crear el cliente: " & ex.Message)
+                ' En caso de error, revertir la transacción
+                transaction.Rollback()
+                Throw New Exception("Error al crear el cliente y asignar roles.", ex)
             End Try
         End Using
 
-        Return clienteID
+        Return exito
     End Function
 
     ' Método para listar todos los clientes visibles
@@ -113,31 +131,6 @@ Public Class ClienteRepository
 
         ' Retornar True si existe el usuario, de lo contrario False
         Return resultado > 0
-    End Function
-
-    ' Método para obtener la lista de roles
-    Public Function ObtenerRoles() As List(Of Entidades.RolEntity)
-        Dim roles As New List(Of Entidades.RolEntity)()
-
-        Using connection As New SqlConnection(connectionString)
-            Using command As New SqlCommand("sp_ListarRoles", connection)
-                command.CommandType = CommandType.StoredProcedure
-
-                connection.Open()
-                Using reader As SqlDataReader = command.ExecuteReader()
-                    While reader.Read()
-                        Dim rol As New Entidades.RolEntity() With {
-                            .RolID = reader.GetInt32(0),
-                            .NombreRol = reader.GetString(1),
-                            .Descripcion = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
-                        }
-                        roles.Add(rol)
-                    End While
-                End Using
-            End Using
-        End Using
-
-        Return roles
     End Function
 
 End Class

@@ -33,11 +33,15 @@ Partial Class FrCrearCliente
         AddressTextBox = New TextBox()
         Label5 = New Label()
         TextBoxApellidos = New TextBox()
+        CheckedListBoxRoles = New CheckedListBox()
+        Label6 = New Label()
+        Label7 = New Label()
+        TextBoxContraseña = New TextBox()
         SuspendLayout()
         ' 
         ' BtnCrearCliente
         ' 
-        BtnCrearCliente.Location = New Point(12, 409)
+        BtnCrearCliente.Location = New Point(12, 517)
         BtnCrearCliente.Name = "BtnCrearCliente"
         BtnCrearCliente.Size = New Size(776, 29)
         BtnCrearCliente.TabIndex = 0
@@ -79,7 +83,7 @@ Partial Class FrCrearCliente
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(25, 179)
+        Label3.Location = New Point(25, 226)
         Label3.Name = "Label3"
         Label3.Size = New Size(67, 20)
         Label3.TabIndex = 5
@@ -87,7 +91,7 @@ Partial Class FrCrearCliente
         ' 
         ' PhoneTextBox
         ' 
-        PhoneTextBox.Location = New Point(171, 179)
+        PhoneTextBox.Location = New Point(171, 226)
         PhoneTextBox.Name = "PhoneTextBox"
         PhoneTextBox.Size = New Size(617, 27)
         PhoneTextBox.TabIndex = 6
@@ -95,7 +99,7 @@ Partial Class FrCrearCliente
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(25, 233)
+        Label4.Location = New Point(25, 280)
         Label4.Name = "Label4"
         Label4.Size = New Size(72, 20)
         Label4.TabIndex = 7
@@ -103,7 +107,7 @@ Partial Class FrCrearCliente
         ' 
         ' AddressTextBox
         ' 
-        AddressTextBox.Location = New Point(171, 233)
+        AddressTextBox.Location = New Point(171, 280)
         AddressTextBox.Name = "AddressTextBox"
         AddressTextBox.Size = New Size(617, 27)
         AddressTextBox.TabIndex = 8
@@ -111,7 +115,7 @@ Partial Class FrCrearCliente
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(29, 78)
+        Label5.Location = New Point(25, 77)
         Label5.Name = "Label5"
         Label5.Size = New Size(72, 20)
         Label5.TabIndex = 9
@@ -124,11 +128,48 @@ Partial Class FrCrearCliente
         TextBoxApellidos.Size = New Size(614, 27)
         TextBoxApellidos.TabIndex = 10
         ' 
+        ' CheckedListBoxRoles
+        ' 
+        CheckedListBoxRoles.FormattingEnabled = True
+        CheckedListBoxRoles.Location = New Point(171, 336)
+        CheckedListBoxRoles.Name = "CheckedListBoxRoles"
+        CheckedListBoxRoles.Size = New Size(318, 114)
+        CheckedListBoxRoles.TabIndex = 11
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(29, 336)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(45, 20)
+        Label6.TabIndex = 12
+        Label6.Text = "Roles"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(29, 175)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(83, 20)
+        Label7.TabIndex = 13
+        Label7.Text = "Contraseña"
+        ' 
+        ' TextBoxContraseña
+        ' 
+        TextBoxContraseña.Location = New Point(173, 175)
+        TextBoxContraseña.Name = "TextBoxContraseña"
+        TextBoxContraseña.Size = New Size(615, 27)
+        TextBoxContraseña.TabIndex = 14
+        ' 
         ' FrCrearCliente
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(800, 558)
+        Controls.Add(TextBoxContraseña)
+        Controls.Add(Label7)
+        Controls.Add(Label6)
+        Controls.Add(CheckedListBoxRoles)
         Controls.Add(TextBoxApellidos)
         Controls.Add(Label5)
         Controls.Add(AddressTextBox)
@@ -157,5 +198,9 @@ Partial Class FrCrearCliente
     Friend WithEvents AddressTextBox As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBoxApellidos As TextBox
+    Friend WithEvents CheckedListBoxRoles As CheckedListBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBoxContraseña As TextBox
 
 End Class

@@ -13,4 +13,9 @@
         Me.NombreRol = nombreRol
         Me.Descripcion = descripcion
     End Sub
+
+    ' Sobrescribir el método ToString para mostrar solo el NombreRol
+    Public Overrides Function ToString() As String
+        Return NombreRol
+    End Function
 End Class
