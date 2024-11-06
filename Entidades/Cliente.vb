@@ -11,6 +11,20 @@
         Public Property Contraseña As String
         Public Property UltimoAcceso As DateTime?
 
+        ' Método ToString para mostrar Nombre y Apellido en el ComboBox
+        Public Overrides Function ToString() As String
+            Return $"{Nombre} {Apellido}"
+        End Function
+
+
+        ' Propiedad calculada para mostrar Nombre completo
+        Public ReadOnly Property NombreCompleto As String
+            Get
+                Return Nombre & " " & Apellido
+            End Get
+        End Property
+
+
         ' Constructor vacío
         Public Sub New()
         End Sub

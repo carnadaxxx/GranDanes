@@ -20,15 +20,14 @@ Public Class FrCrearConfiguracion
             Dim exito As Boolean = configRepo.CrearConfiguracion(nuevaConfiguracion)
 
             If exito Then
-                MessageBox.Show("Configuración creada exitosamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Configuración creada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ' Cerrar el formulario de creación de configuraciones
                 Me.Close()
             Else
                 MessageBox.Show("Hubo un error al crear la Configuración.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
 
         End If
-
-
 
     End Sub
 End Class

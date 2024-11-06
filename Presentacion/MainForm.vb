@@ -44,7 +44,9 @@
 
     Private Sub NuevoClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoClienteToolStripMenuItem.Click
 
-        CargarFormularioEnPanel(New FrCrearCliente)
+        Dim formCrearCliente As New FrCrearCliente
+
+        formCrearCliente.ShowDialog()
 
     End Sub
 
@@ -74,7 +76,7 @@
         End If
 
         ' Cargar FrListarClientes en el panel
-        CargarFormularioEnPanel(New FrListarClientes())
+        CargarFormularioEnPanel(New FrHomePage)
 
     End Sub
 
@@ -85,6 +87,24 @@
     End Sub
 
     Private Sub CrearConfiguracionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearConfiguracionToolStripMenuItem.Click
-        CargarFormularioEnPanel(New FrCrearConfiguracion)
+
+        Dim formCrearConfiguracion As New FrCrearConfiguracion
+
+        formCrearConfiguracion.ShowDialog()
+
+    End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+
+        Application.Exit()
+
+    End Sub
+
+    Private Sub CrearPrestasmoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearPrestasmoToolStripMenuItem.Click
+
+        Dim formCrearPrestamo As New FrCrearPrestamo
+
+        formCrearPrestamo.ShowDialog()
+
     End Sub
 End Class

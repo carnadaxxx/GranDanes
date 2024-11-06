@@ -93,6 +93,37 @@ Public Class ClienteRepository
         Return clientes
     End Function
 
+
+    ' Método para para listar clientes por nombre
+    Public Function ListarClientesPorNombre(nombre As String) As List(Of ClienteEntity)
+        Dim clientes As New List(Of ClienteEntity)()
+
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+            Using command As New SqlCommand("sp_ListarClientesPorNombre", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@Nombre", nombre)
+
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        Dim cliente As New ClienteEntity() With {
+                        .ClienteID = Convert.ToInt32(reader("ClienteID")),
+                        .Nombre = reader("Nombre").ToString(),
+                        .Apellido = reader("Apellido").ToString(),
+                        .Email = reader("Email").ToString(),
+                        .Telefono = reader("Telefono").ToString(),
+                        .Direccion = reader("Direccion").ToString()
+                    }
+                        clientes.Add(cliente)
+                    End While
+                End Using
+            End Using
+        End Using
+
+        Return clientes
+    End Function
+
+
     ' Método para validar al cliente
     Public Function ValidarCliente(email As String, contraseña As String) As Boolean
 
@@ -132,5 +163,41 @@ Public Class ClienteRepository
         ' Retornar True si existe el usuario, de lo contrario False
         Return resultado > 0
     End Function
+
+
+    ' Función para obtener la lista de préstamos por cliente
+    Public Function ObtenerPrestamosPorCliente(clienteID As Integer) As List(Of PrestamoEntity)
+        Dim prestamos As New List(Of PrestamoEntity)()
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand("sp_ObtenerPrestamosPorCliente", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@ClienteID", clienteID)
+
+                connection.Open()
+
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        Dim prestamo As New PrestamoEntity() With {
+                            .PrestamoID = reader.GetInt32(0),
+                            .ClienteID = reader.GetInt32(1),
+                            .MontoTotal = reader.GetDecimal(2),
+                            .MontoConIntereses = reader.GetDecimal(3),
+                            .TasaInteres = reader.GetDecimal(4),
+                            .FechaPrestamo = reader.GetDateTime(5),
+                            .FechaVencimiento = reader.GetDateTime(6),
+                            .Estado = reader.GetString(7),
+                            .NumeroCuotas = reader.GetInt32(8),
+                            .FrecuenciaPago = reader.GetString(9)
+                        }
+                        prestamos.Add(prestamo)
+                    End While
+                End Using
+            End Using
+        End Using
+
+        Return prestamos
+    End Function
+
 
 End Class

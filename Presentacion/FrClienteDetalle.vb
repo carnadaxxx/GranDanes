@@ -15,9 +15,11 @@ Public Class FrClienteDetalle
         TextDireccion.Text = cliente.Direccion
         TextTelefono.Text = cliente.Telefono
 
-        ' PrestamosDatagrid.DataSource = clienteRepository.ListarPrestamosPorCliente(cliente.ClienteID)
+        PrestamosDatagrid.DataSource = clienteRepository.ObtenerPrestamosPorCliente(cliente.ClienteID)
 
     End Sub
 
+    Private Sub FrClienteDetalle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

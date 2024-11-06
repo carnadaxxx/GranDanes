@@ -9,9 +9,9 @@
         ' Esto es para cargar los clientes en memoria lo que no va a cambiar mas adelante
         Dim clientes As List(Of ClienteEntity) = clienteRepo.ListarTodosLosClientes()
 
-        DataGridView1.DataSource = clientes
-        DataGridView1.Columns("ClienteID").Visible = False
-        DataGridView1.Columns("Contraseña").Visible = False
+        dgvClientes.DataSource = clientes
+        dgvClientes.Columns("ClienteID").Visible = False
+        dgvClientes.Columns("Contraseña").Visible = False
 
     End Sub
 
@@ -19,18 +19,21 @@
 
         Dim filtroNombre As String = InputNombreFiltro.Text.Trim()
 
-        Dim clientesFiltrados = clientes.Where(Function(c) c.Nombre.ToLower().Contains(filtroNombre.ToLower())).ToList()
+        ' Llamar al método para listar clientes filtrados por nombre
+        Dim clienteRepo As New ClienteRepository()
+        Dim clientesFiltrados As List(Of ClienteEntity) = clienteRepo.ListarClientesPorNombre(filtroNombre)
 
-        DataGridView1.DataSource = clientesFiltrados
+        ' Asignar los clientes filtrados al DataGridView
+        dgvClientes.DataSource = clientesFiltrados
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
 
         If e.RowIndex >= 0 Then
 
             ' Obtener el cliente seleccionado
-            Dim clienteSeleccionado As ClienteEntity = CType(DataGridView1.Rows(e.RowIndex).DataBoundItem, ClienteEntity)
+            Dim clienteSeleccionado As ClienteEntity = CType(dgvClientes.Rows(e.RowIndex).DataBoundItem, ClienteEntity)
 
             ' Abrir el formulario de detalle y pasar los datos del cliente
             Dim frDetalleCliente As New FrClienteDetalle(clienteSeleccionado)
@@ -39,7 +42,7 @@
             frDetalleCliente.MdiParent = Me.MdiParent  ' Asumiendo que FrListarClientes también es un hijo
 
             ' Mostrar el formulario dentro del contenedor MDI
-            frDetalleCliente.Show()
+            frDetalleCliente.ShowDialog()
 
         End If
 

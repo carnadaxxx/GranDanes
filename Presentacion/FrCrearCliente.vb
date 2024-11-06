@@ -45,6 +45,9 @@ Public Class FrCrearCliente
 
             If exito Then
                 MessageBox.Show("Cliente creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Cargar el formulario de listado de configuraciones en el panel
+
                 Me.Close() ' Cerrar el formulario después de guardar
             Else
                 MessageBox.Show("Hubo un error al crear el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

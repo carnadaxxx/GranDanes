@@ -67,4 +67,25 @@ Public Class ConfiguracionesRepository
         Return exito
     End Function
 
+    Public Function ObtenerConfiguracion(configKey As String) As String
+        Dim configValue As String = String.Empty
+
+        Using connection As New SqlConnection(connectionString) ' Cambia esto por tu cadena de conexión
+            Using command As New SqlCommand("sp_ObtenerConfiguracion", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@ConfigKey", configKey)
+
+                connection.Open()
+
+                Dim result = command.ExecuteScalar()
+                If result IsNot Nothing Then
+                    configValue = result.ToString()
+                End If
+            End Using
+        End Using
+
+        Return configValue
+    End Function
+
+
 End Class
