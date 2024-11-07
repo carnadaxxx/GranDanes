@@ -1,6 +1,4 @@
-﻿Imports Entidades.Entidades
-
-Public Class FrClienteDetalle
+﻿Public Class FrClienteDetalle
 
     Public Sub New(cliente As ClienteEntity)
 
@@ -13,6 +11,7 @@ Public Class FrClienteDetalle
 
         TextNombre.Text = cliente.Nombre
         TextDireccion.Text = cliente.Direccion
+        TextApellidos.Text = cliente.Apellido
         TextTelefono.Text = cliente.Telefono
 
         PrestamosDatagrid.DataSource = clienteRepository.ObtenerPrestamosPorCliente(cliente.ClienteID)

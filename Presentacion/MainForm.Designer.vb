@@ -31,9 +31,9 @@ Partial Class MainForm
         CrearConfiguracionToolStripMenuItem = New ToolStripMenuItem()
         MostrarConfiguracionesToolStripMenuItem = New ToolStripMenuItem()
         PrestamosToolStripMenuItem = New ToolStripMenuItem()
-        pnlContenedor = New Panel()
         CrearPrestasmoToolStripMenuItem = New ToolStripMenuItem()
         ListarPrestamosToolStripMenuItem = New ToolStripMenuItem()
+        pnlContenedor = New Panel()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -58,19 +58,19 @@ Partial Class MainForm
         ' NuevoClienteToolStripMenuItem
         ' 
         NuevoClienteToolStripMenuItem.Name = "NuevoClienteToolStripMenuItem"
-        NuevoClienteToolStripMenuItem.Size = New Size(224, 26)
+        NuevoClienteToolStripMenuItem.Size = New Size(185, 26)
         NuevoClienteToolStripMenuItem.Text = "Nuevo Cliente"
         ' 
         ' VerClientesToolStripMenuItem
         ' 
         VerClientesToolStripMenuItem.Name = "VerClientesToolStripMenuItem"
-        VerClientesToolStripMenuItem.Size = New Size(224, 26)
+        VerClientesToolStripMenuItem.Size = New Size(185, 26)
         VerClientesToolStripMenuItem.Text = "Ver Clientes"
         ' 
         ' SalirToolStripMenuItem
         ' 
         SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        SalirToolStripMenuItem.Size = New Size(224, 26)
+        SalirToolStripMenuItem.Size = New Size(185, 26)
         SalirToolStripMenuItem.Text = "Salir"
         ' 
         ' ConfiguracionesToolStripMenuItem
@@ -99,14 +99,6 @@ Partial Class MainForm
         PrestamosToolStripMenuItem.Size = New Size(91, 24)
         PrestamosToolStripMenuItem.Text = "Prestamos"
         ' 
-        ' pnlContenedor
-        ' 
-        pnlContenedor.Dock = DockStyle.Fill
-        pnlContenedor.Location = New Point(0, 30)
-        pnlContenedor.Name = "pnlContenedor"
-        pnlContenedor.Size = New Size(800, 421)
-        pnlContenedor.TabIndex = 1
-        ' 
         ' CrearPrestasmoToolStripMenuItem
         ' 
         CrearPrestasmoToolStripMenuItem.Name = "CrearPrestasmoToolStripMenuItem"
@@ -118,6 +110,14 @@ Partial Class MainForm
         ListarPrestamosToolStripMenuItem.Name = "ListarPrestamosToolStripMenuItem"
         ListarPrestamosToolStripMenuItem.Size = New Size(224, 26)
         ListarPrestamosToolStripMenuItem.Text = "Listar Prestamos"
+        ' 
+        ' pnlContenedor
+        ' 
+        pnlContenedor.Dock = DockStyle.Fill
+        pnlContenedor.Location = New Point(0, 30)
+        pnlContenedor.Name = "pnlContenedor"
+        pnlContenedor.Size = New Size(800, 421)
+        pnlContenedor.TabIndex = 1
         ' 
         ' MainForm
         ' 

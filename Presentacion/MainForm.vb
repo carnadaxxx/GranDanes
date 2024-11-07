@@ -107,4 +107,10 @@
         formCrearPrestamo.ShowDialog()
 
     End Sub
+
+    Private Sub ListarPrestamosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListarPrestamosToolStripMenuItem.Click
+
+        CargarFormularioEnPanel(New FrListarPrestamos)
+
+    End Sub
 End Class
