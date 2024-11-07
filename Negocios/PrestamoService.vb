@@ -21,7 +21,7 @@ Public Class PrestamoService
             Dim montoMinimo As Decimal
 
             If Decimal.TryParse(montoMinimoString, montoMinimo) Then
-                If prestamo.MontoTotal < montoMinimo Then
+                If prestamo.MontoTotal <= montoMinimo Then
                     errores.Add($"El monto total debe ser mayor o igual a {montoMinimo}.")
                 End If
             Else

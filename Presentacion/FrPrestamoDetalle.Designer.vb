@@ -34,6 +34,9 @@ Partial Class FrPrestamoDetalle
         Label5 = New Label()
         lblMontoConInteres = New Label()
         lblMontoCancelado = New Label()
+        Label6 = New Label()
+        Label7 = New Label()
+        lblEstadoPago = New Label()
         CType(DataGridListaCuotas, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -112,7 +115,7 @@ Partial Class FrPrestamoDetalle
         ' DataGridListaCuotas
         ' 
         DataGridListaCuotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridListaCuotas.Location = New Point(11, 292)
+        DataGridListaCuotas.Location = New Point(11, 343)
         DataGridListaCuotas.Name = "DataGridListaCuotas"
         DataGridListaCuotas.RowHeadersWidth = 51
         DataGridListaCuotas.Size = New Size(776, 246)
@@ -121,7 +124,7 @@ Partial Class FrPrestamoDetalle
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(11, 78)
+        Label5.Location = New Point(11, 87)
         Label5.Name = "Label5"
         Label5.Size = New Size(145, 20)
         Label5.TabIndex = 9
@@ -130,7 +133,7 @@ Partial Class FrPrestamoDetalle
         ' lblMontoConInteres
         ' 
         lblMontoConInteres.AutoSize = True
-        lblMontoConInteres.Location = New Point(186, 78)
+        lblMontoConInteres.Location = New Point(186, 87)
         lblMontoConInteres.Name = "lblMontoConInteres"
         lblMontoConInteres.Size = New Size(140, 20)
         lblMontoConInteres.TabIndex = 10
@@ -145,11 +148,41 @@ Partial Class FrPrestamoDetalle
         lblMontoCancelado.TabIndex = 11
         lblMontoCancelado.Text = " lblMontoCancelado"
         ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(12, 121)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(127, 20)
+        Label6.TabIndex = 12
+        Label6.Text = "Monto Cancelado"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(14, 251)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(91, 20)
+        Label7.TabIndex = 13
+        Label7.Text = "Estado Pago"
+        ' 
+        ' lblEstadoPago
+        ' 
+        lblEstadoPago.AutoSize = True
+        lblEstadoPago.Location = New Point(176, 251)
+        lblEstadoPago.Name = "lblEstadoPago"
+        lblEstadoPago.Size = New Size(104, 20)
+        lblEstadoPago.TabIndex = 14
+        lblEstadoPago.Text = "lblEstadoPago"
+        ' 
         ' FrPrestamoDetalle
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 550)
+        ClientSize = New Size(800, 601)
+        Controls.Add(lblEstadoPago)
+        Controls.Add(Label7)
+        Controls.Add(Label6)
         Controls.Add(lblMontoCancelado)
         Controls.Add(lblMontoConInteres)
         Controls.Add(Label5)
@@ -181,4 +214,7 @@ Partial Class FrPrestamoDetalle
     Friend WithEvents Label5 As Label
     Friend WithEvents lblMontoConInteres As Label
     Friend WithEvents lblMontoCancelado As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents lblEstadoPago As Label
 End Class

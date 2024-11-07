@@ -4,8 +4,14 @@ Public Class FrCrearPrestamo
     Private Sub FrCrearPrestamo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Cargar clientes en el ComboBox
         Dim clienteRepo As New ClienteRepository()
+        Dim configRepo As New ConfiguracionesRepository()
+
         Dim clientes As List(Of ClienteEntity) = clienteRepo.ListarTodosLosClientes()
 
+        txtTasaInteres.Text = configRepo.ObtenerConfiguracion("TasaInteresPorDefecto")
+
+        Dim numeroCuotasPorDefecto As String = configRepo.ObtenerConfiguracion("NumeroDeCuotasPorDefecto")
+        nudNumeroCuotas.Value = Convert.ToInt32(numeroCuotasPorDefecto)
         cmbClientes.DataSource = clientes
         cmbClientes.ValueMember = "ClienteID"
         cmbClientes.DisplayMember = "NombreCompleto"
@@ -37,6 +43,7 @@ Public Class FrCrearPrestamo
             ' Validar si el préstamo fue creado exitosamente
             If prestamoID > 0 Then
                 MessageBox.Show($"Préstamo creado exitosamente. ID del préstamo: {prestamoID}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
             Else
                 MessageBox.Show("No se pudo crear el préstamo. Verifique los datos e intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If

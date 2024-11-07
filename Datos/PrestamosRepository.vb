@@ -159,7 +159,4 @@ Public Class PrestamosRepository
         Return montoCancelado
     End Function
 
-
-
-
 End Class
