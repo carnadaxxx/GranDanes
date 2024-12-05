@@ -14,11 +14,15 @@
         TextApellidos.Text = cliente.Apellido
         TextTelefono.Text = cliente.Telefono
 
+        ' Dividir la cadena de roles y agregar cada rol al ListBox
+        Dim roles As String() = cliente.Roles.Split(","c)
+
+        For Each rol In roles
+            ListBoxRoles.Items.Add(rol.Trim())
+        Next
+
         PrestamosDatagrid.DataSource = clienteRepository.ObtenerPrestamosPorCliente(cliente.ClienteID)
 
     End Sub
 
-    Private Sub FrClienteDetalle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

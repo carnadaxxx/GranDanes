@@ -3,7 +3,7 @@
 Public Class FrEditarCliente
 
     Private clienteRepo As New ClienteRepository()
-    Private rolesRepo As New RolesRepository()
+    Private rolesRepo As New RolRepository()
     Private clienteID As Integer ' El ID del cliente a editar
 
     Public Sub New(clienteID As Integer)
@@ -24,7 +24,6 @@ Public Class FrEditarCliente
         txtEmail.Text = cliente.Email
         txtTelefono.Text = cliente.Telefono
         txtDireccion.Text = cliente.Direccion
-        ' etc., según los campos del cliente
     End Sub
 
     Private Sub CargarRoles()
@@ -32,37 +31,46 @@ Public Class FrEditarCliente
         Dim rolesCliente = rolesRepo.ObtenerRolesPorCliente(clienteID)
 
         For Each rol In rolesDisponibles
-            Dim index = checkedListBoxRoles.Items.Add(rol.Nombre)
-            checkedListBoxRoles.SetItemChecked(index, rolesCliente.Contains(rol.ID))
+            Dim index = checkedListBoxRoles.Items.Add(rol.NombreRol)
+            checkedListBoxRoles.SetItemChecked(index, rolesCliente.Contains(rol))
         Next
     End Sub
 
-    Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles BtnGuardar.Click
-        ' Capturar los datos del cliente
-        Dim cliente = New ClienteEntity With {
-            .ClienteID = clienteID,
-            .Nombre = txtNombre.Text,
-            .Apellido = txtApellido.Text,
-            .Email = txtEmail.Text,
-            .Telefono = txtTelefono.Text,
-            .Direccion = txtDireccion.Text
-        }
+    '    Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles BtnGuardar.Click
+    '        ' Capturar los datos del cliente
+    '        Dim cliente = New ClienteEntity With {
+    '            .ClienteID = clienteID,
+    '            .Nombre = txtNombre.Text,
+    '            .Apellido = txtApellido.Text,
+    '            .Email = txtEmail.Text,
+    '            .Telefono = txtTelefono.Text,
+    '            .Direccion = txtDireccion.Text
+    '        }
 
-        ' Capturar los roles seleccionados
-        Dim rolesSeleccionados As New List(Of Integer)
-        For i As Integer = 0 To checkedListBoxRoles.Items.Count - 1
-            If checkedListBoxRoles.GetItemChecked(i) Then
-                rolesSeleccionados.Add(CType(checkedListBoxRoles.Items(i), Role).ID)
-            End If
-        Next
+    '        ' Capturar los roles seleccionados
+    '        Dim rolesSeleccionados As New List(Of Integer)
+    '        For i As Integer = 0 To checkedListBoxRoles.Items.Count - 1
+    '            If checkedListBoxRoles.GetItemChecked(i) Then
+    '                rolesSeleccionados.Add(CType(checkedListBoxRoles.Items(i), Rol).ID)
+    '            End If
+    '        Next
 
-        ' Guardar los cambios
-        Dim exito = clienteRepo.ModificarClienteConRoles(cliente, rolesSeleccionados)
-        If exito Then
-            MessageBox.Show("El cliente se actualizó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Close()
-        Else
-            MessageBox.Show("No se pudo actualizar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
+    '        ' Guardar los cambios
+    '        Dim exito = clienteRepo.ModificarClienteConRoles(
+    '            clienteID:=cliente.ClienteID,
+    '            nombre:=cliente.Nombre,
+    '            apellido:=cliente.Apellido,
+    '            email:=cliente.Email,
+    '            telefono:=cliente.Telefono,
+    '            direccion:=cliente.Direccion,
+    ')
+
+    '        If exito Then
+    '            MessageBox.Show("El cliente se actualizó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '            Me.Close()
+    '        Else
+    '            MessageBox.Show("No se pudo actualizar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        End If
+    '    End Sub
+
 End Class

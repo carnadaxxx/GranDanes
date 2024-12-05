@@ -220,13 +220,14 @@ Public Class ClienteRepository
                                 .ClienteID = reader.GetInt32(reader.GetOrdinal("ClienteID")),
                                 .Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
                                 .Apellido = reader.GetString(reader.GetOrdinal("Apellido")),
+                                .Contraseña = reader.GetString(reader.GetOrdinal("Contraseña")),
                                 .Email = reader.GetString(reader.GetOrdinal("Email")),
                                 .Telefono = If(reader.IsDBNull(reader.GetOrdinal("Telefono")), Nothing, reader.GetString(reader.GetOrdinal("Telefono"))),
                                 .Direccion = If(reader.IsDBNull(reader.GetOrdinal("Direccion")), Nothing, reader.GetString(reader.GetOrdinal("Direccion"))),
                                 .FechaRegistro = If(reader.IsDBNull(reader.GetOrdinal("FechaRegistro")), Nothing, reader.GetDateTime(reader.GetOrdinal("FechaRegistro"))),
                                 .Visible = If(reader.IsDBNull(reader.GetOrdinal("Visible")), False, reader.GetBoolean(reader.GetOrdinal("Visible"))),
-                                .Contraseña = reader.GetString(reader.GetOrdinal("Contraseña")),
-                                .UltimoAcceso = If(reader.IsDBNull(reader.GetOrdinal("UltimoAcceso")), Nothing, reader.GetDateTime(reader.GetOrdinal("UltimoAcceso")))
+                                .UltimoAcceso = If(reader.IsDBNull(reader.GetOrdinal("UltimoAcceso")), Nothing, reader.GetDateTime(reader.GetOrdinal("UltimoAcceso"))),
+                                .Roles = reader.GetString(reader.GetOrdinal("Roles"))
                             }
                         End If
                     End Using

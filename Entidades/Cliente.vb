@@ -10,6 +10,7 @@
         Public Property Visible As Boolean
         Public Property Contraseña As String
         Public Property UltimoAcceso As DateTime?
+        Public Property Roles As String
 
         ' Método ToString para mostrar Nombre y Apellido en el ComboBox
         Public Overrides Function ToString() As String
@@ -30,7 +31,7 @@
         End Sub
 
         ' Constructor con todos los valores
-        Public Sub New(clienteID As Integer, nombre As String, apellido As String, email As String, telefono As String, direccion As String, fechaRegistro As Date, visible As Boolean, contraseña As String, ultimoAcceso As DateTime?)
+        Public Sub New(clienteID As Integer, nombre As String, apellido As String, email As String, telefono As String, direccion As String, fechaRegistro As Date, visible As Boolean, contraseña As String, ultimoAcceso As DateTime?, roles As String)
             Me.ClienteID = clienteID
             Me.Nombre = nombre
             Me.Apellido = apellido
@@ -41,6 +42,7 @@
             Me.Visible = visible
             Me.Contraseña = contraseña
             Me.UltimoAcceso = ultimoAcceso
+            Me.Roles = roles
         End Sub
     End Class
 

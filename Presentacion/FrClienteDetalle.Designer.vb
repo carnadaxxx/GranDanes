@@ -31,6 +31,8 @@ Partial Class FrClienteDetalle
         PrestamosDatagrid = New DataGridView()
         Label3 = New Label()
         TextApellidos = New TextBox()
+        Label5 = New Label()
+        ListBoxRoles = New ListBox()
         CType(PrestamosDatagrid, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -45,9 +47,9 @@ Partial Class FrClienteDetalle
         ' 
         ' TextNombre
         ' 
-        TextNombre.Location = New Point(93, 6)
+        TextNombre.Location = New Point(112, 6)
         TextNombre.Name = "TextNombre"
-        TextNombre.Size = New Size(695, 27)
+        TextNombre.Size = New Size(374, 27)
         TextNombre.TabIndex = 1
         ' 
         ' Label2
@@ -61,9 +63,9 @@ Partial Class FrClienteDetalle
         ' 
         ' TextDireccion
         ' 
-        TextDireccion.Location = New Point(93, 87)
+        TextDireccion.Location = New Point(112, 87)
         TextDireccion.Name = "TextDireccion"
-        TextDireccion.Size = New Size(698, 27)
+        TextDireccion.Size = New Size(374, 27)
         TextDireccion.TabIndex = 3
         ' 
         ' Label4
@@ -77,18 +79,18 @@ Partial Class FrClienteDetalle
         ' 
         ' TextTelefono
         ' 
-        TextTelefono.Location = New Point(93, 127)
+        TextTelefono.Location = New Point(112, 127)
         TextTelefono.Name = "TextTelefono"
-        TextTelefono.Size = New Size(698, 27)
+        TextTelefono.Size = New Size(374, 27)
         TextTelefono.TabIndex = 6
         ' 
         ' PrestamosDatagrid
         ' 
         PrestamosDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        PrestamosDatagrid.Location = New Point(12, 265)
+        PrestamosDatagrid.Location = New Point(12, 177)
         PrestamosDatagrid.Name = "PrestamosDatagrid"
         PrestamosDatagrid.RowHeadersWidth = 51
-        PrestamosDatagrid.Size = New Size(776, 306)
+        PrestamosDatagrid.Size = New Size(776, 394)
         PrestamosDatagrid.TabIndex = 7
         ' 
         ' Label3
@@ -102,16 +104,35 @@ Partial Class FrClienteDetalle
         ' 
         ' TextApellidos
         ' 
-        TextApellidos.Location = New Point(93, 47)
+        TextApellidos.Location = New Point(112, 47)
         TextApellidos.Name = "TextApellidos"
-        TextApellidos.Size = New Size(695, 27)
+        TextApellidos.Size = New Size(374, 27)
         TextApellidos.TabIndex = 9
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(511, 6)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(45, 20)
+        Label5.TabIndex = 11
+        Label5.Text = "Roles"
+        ' 
+        ' ListBoxRoles
+        ' 
+        ListBoxRoles.FormattingEnabled = True
+        ListBoxRoles.Location = New Point(515, 36)
+        ListBoxRoles.Name = "ListBoxRoles"
+        ListBoxRoles.Size = New Size(273, 104)
+        ListBoxRoles.TabIndex = 12
         ' 
         ' FrClienteDetalle
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 583)
+        Controls.Add(ListBoxRoles)
+        Controls.Add(Label5)
         Controls.Add(TextApellidos)
         Controls.Add(Label3)
         Controls.Add(PrestamosDatagrid)
@@ -137,4 +158,6 @@ Partial Class FrClienteDetalle
     Friend WithEvents PrestamosDatagrid As DataGridView
     Friend WithEvents Label3 As Label
     Friend WithEvents TextApellidos As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents ListBoxRoles As ListBox
 End Class

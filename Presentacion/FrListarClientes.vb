@@ -32,19 +32,30 @@
 
         If e.RowIndex >= 0 Then
 
-            ' Obtener el cliente seleccionado
-            Dim clienteSeleccionado As ClienteEntity = CType(dgvClientes.Rows(e.RowIndex).DataBoundItem, ClienteEntity)
+            ' Obtener el ID del cliente seleccionado
+            Dim clienteID As Integer = CType(dgvClientes.Rows(e.RowIndex).Cells("ClienteID").Value, Integer)
 
-            ' Abrir el formulario de detalle y pasar los datos del cliente
-            Dim frDetalleCliente As New FrClienteDetalle(clienteSeleccionado)
+            ' Hacer una petición al repositorio para obtener los detalles completos del cliente
+            Dim clienteRepository As New ClienteRepository
 
-            ' Hacer que el formulario de detalle sea hijo de MainStrip (MDI)
-            frDetalleCliente.MdiParent = Me.MdiParent  ' Asumiendo que FrListarClientes también es un hijo
+            Dim clienteSeleccionado As ClienteEntity = clienteRepository.ObtenerClientePorID(clienteID)
 
-            ' Mostrar el formulario dentro del contenedor MDI
-            frDetalleCliente.ShowDialog()
+            ' Verificar si se obtuvo el cliente correctamente
+            If clienteSeleccionado IsNot Nothing Then
+                ' Abrir el formulario de detalle y pasar los datos del cliente
+                Dim frDetalleCliente As New FrClienteDetalle(clienteSeleccionado)
+
+                ' Hacer que el formulario de detalle sea hijo de MainStrip (MDI)
+                frDetalleCliente.MdiParent = Me.MdiParent  ' Asumiendo que FrListarClientes también es un hijo
+
+                ' Mostrar el formulario dentro del contenedor MDI
+                frDetalleCliente.ShowDialog()
+            Else
+                MessageBox.Show("Error al obtener los detalles del cliente.")
+            End If
 
         End If
 
     End Sub
+
 End Class
