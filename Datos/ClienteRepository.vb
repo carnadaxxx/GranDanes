@@ -241,20 +241,20 @@ Public Class ClienteRepository
         Return cliente
     End Function
 
-    Public Function ModificarClienteConRoles(clienteID As Integer, nombre As String, apellido As String, email As String, telefono As String, direccion As String, visible As Boolean, contraseña As String, rolesAgregar As String, rolesQuitar As String) As Boolean
+    Public Function ModificarClienteConRoles(cliente As ClienteEntity, rolesAgregar As String, rolesQuitar As String) As Boolean
         Using connection As New SqlConnection(connectionString)
             Using command As New SqlCommand("sp_ModificarClienteConRoles", connection)
                 command.CommandType = CommandType.StoredProcedure
 
                 ' Parámetros de entrada
-                command.Parameters.AddWithValue("@ClienteID", clienteID)
-                command.Parameters.AddWithValue("@Nombre", nombre)
-                command.Parameters.AddWithValue("@Apellido", apellido)
-                command.Parameters.AddWithValue("@Email", email)
-                command.Parameters.AddWithValue("@Telefono", telefono)
-                command.Parameters.AddWithValue("@Direccion", direccion)
-                command.Parameters.AddWithValue("@Visible", visible)
-                command.Parameters.AddWithValue("@Contraseña", contraseña)
+                command.Parameters.AddWithValue("@ClienteID", cliente.ClienteID)
+                command.Parameters.AddWithValue("@Nombre", cliente.Nombre)
+                command.Parameters.AddWithValue("@Apellido", cliente.Apellido)
+                command.Parameters.AddWithValue("@Email", cliente.Email)
+                command.Parameters.AddWithValue("@Telefono", cliente.Telefono)
+                command.Parameters.AddWithValue("@Direccion", cliente.Direccion)
+                command.Parameters.AddWithValue("@Visible", cliente.Visible)
+                command.Parameters.AddWithValue("@Contraseña", cliente.Contraseña)
                 command.Parameters.AddWithValue("@RolesAgregar", rolesAgregar)
                 command.Parameters.AddWithValue("@RolesQuitar", rolesQuitar)
 
