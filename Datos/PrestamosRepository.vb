@@ -60,7 +60,8 @@ Public Class PrestamosRepository
                         .FechaVencimiento = Convert.ToDateTime(reader("FechaVencimiento")),
                         .Estado = reader("Estado").ToString(),
                         .NumeroCuotas = Convert.ToInt32(reader("NumeroCuotas")),
-                        .FrecuenciaPago = reader("FrecuenciaPago").ToString()
+                        .FrecuenciaPago = reader("FrecuenciaPago").ToString(),
+                        .EstadoAprobacion = reader("EstadoAprobacion").ToString()
                     }
                         listaPrestamos.Add(prestamo)
                     End While
@@ -93,7 +94,8 @@ Public Class PrestamosRepository
                         .FrecuenciaPago = reader.GetString(reader.GetOrdinal("FrecuenciaPago")),
                         .FechaPrestamo = reader.GetDateTime(reader.GetOrdinal("FechaPrestamo")),
                         .FechaVencimiento = reader.GetDateTime(reader.GetOrdinal("FechaVencimiento")),
-                        .Estado = reader.GetString(reader.GetOrdinal("Estado"))
+                        .Estado = reader.GetString(reader.GetOrdinal("Estado")),
+                        .EstadoAprobacion = reader.GetString(reader.GetOrdinal("EstadoAprobacion"))
                     }
                     End If
                 End Using

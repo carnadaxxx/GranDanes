@@ -11,7 +11,7 @@
         Public Property Estado As String            ' Estado del préstamo (e.g., 'Pendiente', 'Pagado')
         Public Property NumeroCuotas As Integer     ' Numero de cuotas
         Public Property FrecuenciaPago As String    ' Frecuencia de Pagos (e.g., 'Mensual', 'Quincenal')
-
+        Public Property EstadoAprobacion As String
         ' Constructor sin parámetros
         Public Sub New()
         End Sub

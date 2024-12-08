@@ -23,12 +23,9 @@
         lblTasaInteres.Text = prestamo.TasaInteres.ToString() & "%"
         lblFechaInicio.Text = prestamo.FechaPrestamo.ToShortDateString()
         lblEstadoPago.Text = prestamo.Estado.ToString()
+        lblAprobacion.Text = prestamo.EstadoAprobacion.ToString()
 
         DataGridListaCuotas.DataSource = prestamoRepository.ObtenerCuotasPorPrestamo(prestamo.PrestamoID)
-
-    End Sub
-
-    Private Sub lblTasaInteres_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
     End Sub
 
