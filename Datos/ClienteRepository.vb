@@ -270,4 +270,22 @@ Public Class ClienteRepository
         End Using
     End Function
 
+    Public Function OcultarCliente(clienteID As Integer) As Boolean
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand("sp_OcultarCliente", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@ClienteID", clienteID)
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    Return True
+                Catch ex As Exception
+                    MessageBox.Show("Error al ocultar el cliente: " & ex.Message)
+                    Return False
+                End Try
+            End Using
+        End Using
+    End Function
+
+
 End Class

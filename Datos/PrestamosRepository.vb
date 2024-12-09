@@ -107,7 +107,6 @@ Public Class PrestamosRepository
 
     Public Function ObtenerCuotasPorPrestamo(prestamoID As Integer) As List(Of CuotaEntity)
         Dim cuotas As New List(Of CuotaEntity)()
-
         Using connection As New SqlConnection(connectionString)
             Using command As New SqlCommand("sp_ObtenerCuotasPorPrestamo", connection)
                 command.CommandType = CommandType.StoredProcedure
@@ -159,6 +158,42 @@ Public Class PrestamosRepository
 
         ' Retornar el monto cancelado
         Return montoCancelado
+    End Function
+
+    Public Function AprobarPrestamo(prestamoID As Integer) As Boolean
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand("sp_AprobarPrestamo", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@PrestamoID", prestamoID)
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    Return True
+                Catch ex As Exception
+                    MessageBox.Show("Error al aprobar prestamo: " & ex.Message)
+                    Return False
+                End Try
+            End Using
+        End Using
+    End Function
+
+    Public Function DenegarPrestamo(prestamoID As Integer) As Boolean
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand("sp_DenegarPrestamo", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@PrestamoID", prestamoID)
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    Return True
+                Catch ex As Exception
+                    MessageBox.Show("Error al aprobar prestamo: " & ex.Message)
+                    Return False
+                End Try
+            End Using
+        End Using
     End Function
 
 End Class
